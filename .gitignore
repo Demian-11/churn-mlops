@@ -21,4 +21,7 @@ data/processed/
 !data/processed/.gitkeep
 
 # Sistema operativo
-.DS_Store
+.DS_Storemodels/
+models/
+!models/.gitkeep
+!models/metrics.json
