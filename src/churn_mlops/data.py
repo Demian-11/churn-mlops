@@ -29,7 +29,7 @@ def load_raw_csvs() -> pd.DataFrame:
     if not files:
         raise FileNotFoundError(
             f"No se encontraron CSVs en {DATA_RAW}. "
-            "Coloca al menos un .csv en data/raw/ y vuelve a intentar."
+            "Verifica que existan al menos un .csv en data/raw/ y vuelve a intentar."
         )
     dfs = [pd.read_csv(f) for f in files]
     df = pd.concat(dfs, ignore_index=True)
@@ -47,10 +47,10 @@ def basic_clean(df: pd.DataFrame) -> pd.DataFrame:
             df["churn"] = (
                 df["churn"].astype(str).str.strip().str.lower().map({"yes": 1, "no": 0})
             )
-        # Si quedó algo no mapeado, intenta convertir a numérico
+
         df["churn"] = pd.to_numeric(df["churn"], errors="coerce")
 
-    # Ejemplo: elimina columnas totalmente vacías
+    
     df = df.dropna(axis=1, how="all")
 
     return df
@@ -62,17 +62,17 @@ def save_processed(df: pd.DataFrame) -> None:
 
 
 def main():
-    print(f"📥 Leyendo CSV(s) desde: {DATA_RAW}")
+    print(f"Leyendo CSV(s) en: {DATA_RAW}")
     df = load_raw_csvs()
     print(f"   - Filas crudas: {len(df):,} | Columnas: {len(df.columns)}")
 
     df = basic_clean(df)
-    print(f"🧹 Después de clean: {len(df):,} filas | {len(df.columns)} columnas")
+    print(f"Después de la limpieza: {len(df):,} filas | {len(df.columns)} columnas")
     if "churn" in df.columns:
-        print("   - Columna 'churn' detectada ✔️")
+        print("   - Columna 'churn' detectada")
 
     save_processed(df)
-    print(f"💾 Guardado: {OUTPUT_FILE}")
+    print(f"Guardado como: {OUTPUT_FILE}")
 
 
 if __name__ == "__main__":

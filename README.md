@@ -24,3 +24,17 @@ Este proyecto demuestra un pipeline completo para **predicción de churn**:
 python3 -m venv .venv
 source .venv/bin/activate  # en macOS/Linux
 pip install -r requirements.txt
+
+## Results (tiny demo)
+Small illustrative run on a 5-row sample (not representative; overfits by design).
+
+| Metric   | Value |
+|---------:|------:|
+| Accuracy | 1.00  |
+| ROC-AUC  | 1.00  |
+
+> Reproduce:
+> ```bash
+> python src/churn_mlops/train.py
+> cat models/metrics.json
+> ```
