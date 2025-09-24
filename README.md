@@ -22,18 +22,18 @@ This repository demonstrates a complete **end-to-end MLOps pipeline** for custom
 ```
 
 ## Quickstart
-# 1. Create and activate virtual environment
+### 1. Create and activate virtual environment
 python3 -m venv .venv
 source .venv/bin/activate  # on macOS/Linux
 
-# 2. Install dependencies
+### 2. Install dependencies
 pip install -r requirements.txt
 
-# 3. Place your CSV(s) in data/raw/ and run:
+### 3. Place your CSV(s) in data/raw/ and run:
 python src/churn_mlops/data.py
 python src/churn_mlops/features.py
 
-# 4. Train model
+### 4. Train model
 python src/churn_mlops/train.py
 cat models/metrics.json
 
