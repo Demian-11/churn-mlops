@@ -1,0 +1,24 @@
+# Entornos virtuales
+.venv/
+venv/
+ENV/
+env/
+
+# Archivos temporales / caché
+__pycache__/
+*.py[cod]
+*.log
+*.tmp
+*.sqlite
+*.db
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Datos pesados  (solo ejemplos)
+data/raw/
+data/processed/
+!data/processed/.gitkeep
+
+# Sistema operativo
+.DS_Store
