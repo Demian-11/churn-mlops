@@ -18,8 +18,9 @@ Este proyecto demuestra un pipeline completo para **predicción de churn**:
 ├── models/
 ├── configs/
 └── README.md
+```
 
-# Instalación 
+## Instalación 
 python3 -m venv .venv
 source .venv/bin/activate  # en macOS/Linux
 pip install -r requirements.txt
